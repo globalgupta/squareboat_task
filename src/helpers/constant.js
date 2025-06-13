@@ -1,0 +1,21 @@
+exports.validationMessage = {
+    // FIRST_NAME_REQUIRED: 'First name is a required field.',
+    // LAST_NAME_REQUIRED: 'Last name is a required field.',
+    EMAIL_REQUIRED: 'Email is a required field.',
+    INVALID_EMAIL: 'Please enter a valid email address.',
+    PASSWORD_REQUIRED: 'Password is a required field.',
+    INTERNAL_SERVER_ERROR: 'Internal server error.',
+    DATA_SUCCEESS: 'Success.',
+    DATA_NOT_EXIST: 'Data does not exist.',
+    DATA_UPDATE_SUCCESS: 'Data updated successfully.',
+    DATA_DELETE_SUCCESS: 'Data deleted successfully.',
+    EMAIL_ALREADY_EXIST: 'Email is already exist.',
+    EMAIL_NOT_EXIST: 'Email does not exist.',
+    REGISTRATION_SUCCEESS: 'Registration success...',
+    INCORRECT_PASSWORD: 'Incorrect password.',
+    JOB_TITLE_REQUIRED: 'Title is a required field.',
+    JOB_DESCRIPTION_REQUIRED: 'Description is a required field.',
+    NO_TOKEN_FOUND: 'No token found for this User.',
+    UNAUTHORIZED_TOKEN: 'Un-authorized User.',
+    JOB_ID_REQUIRED: 'Job Id is a required field'
+}
