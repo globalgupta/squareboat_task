@@ -6,6 +6,7 @@ exports.validationMessage = {
     PASSWORD_REQUIRED: 'Password is a required field.',
     INTERNAL_SERVER_ERROR: 'Internal server error.',
     DATA_SUCCEESS: 'Success.',
+    LOGOUT_SUCCEESS: 'Logout success.',
     DATA_NOT_EXIST: 'Data does not exist.',
     DATA_UPDATE_SUCCESS: 'Data updated successfully.',
     DATA_DELETE_SUCCESS: 'Data deleted successfully.',

@@ -5,6 +5,7 @@ const { validationMessage } = require('../helpers/constant');
 const RECRUITER = require('../models/recruiter-model');
 const JOB = require('../models/job-model');
 const APPLIEDJOB = require('../models/applied-job-model');
+const AUTHTOKEN = require('../models/auth-token-model');
 const mongoose = require('mongoose');
 
 
@@ -63,6 +64,8 @@ exports.recruiterLogin = [
             }
 
             const token = await commonFunction.generateToken(checkEmailExist._id);
+
+            await AUTHTOKEN.create({ user_id: checkEmailExist?._id, token: token });
 
             return helper.successResponseWithData(res, validationMessage.REGISTRATION_SUCCEESS, { recruiterData: checkEmailExist, token: token });
         }
@@ -149,3 +152,19 @@ exports.candidateAppliedOnJobListing = [
     }
 ];
 
+
+exports.recruiterLogout = async (req, res) => {
+    try {
+        const authData = req.headers.authorization;
+
+        const token = authData.split(' ')[1];
+
+        await AUTHTOKEN.deleteOne({ token: token });
+
+        return helper.successResponse(res, validationMessage.LOGOUT_SUCCEESS);
+    }
+    catch (err) {
+        console.log('catch block error ===>>>>', err);
+        return helper.catchedErrorResponse(res, validationMessage.INTERNAL_SERVER_ERROR, err.message);
+    }
+};

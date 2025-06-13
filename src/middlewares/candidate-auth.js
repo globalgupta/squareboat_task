@@ -1,6 +1,7 @@
 const JWT = require('jsonwebtoken');
 const helper = require('../helpers/api-response');
 const CANDIDATE = require('../models/candidate-model');
+const AUTHTOKEN = require('../models/auth-token-model');
 const { validationMessage } = require('../helpers/constant');
 
 
@@ -15,6 +16,9 @@ const validateCandidate = async (req, res, next) => {
 
         const candidateData = await CANDIDATE.findOne({ _id: verifyToken.userId });
         if (!candidateData) return helper.unAuthorizedResponse(res, validationMessage.UNAUTHORIZED_TOKEN);
+
+        const findToken = await AUTHTOKEN.findOne({ token: token });
+        if (!findToken) return helper.errorResponse(res, validationMessage.UNAUTHORIZED_TOKEN);
 
         req.currentUser = candidateData;
         next();

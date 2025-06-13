@@ -8,5 +8,6 @@ router.post('/recruiter-registration', recruiterController.recruiterRegistration
 router.post('/recruiter-login', recruiterController.recruiterLogin);
 router.post('/post-job', validateRecruiter, recruiterController.postJob);
 router.get('/candidate-applied-job-listing', validateRecruiter, recruiterController.candidateAppliedOnJobListing);
+router.post('/recruiter-logout', validateRecruiter, recruiterController.recruiterLogout);
 
 module.exports = router;

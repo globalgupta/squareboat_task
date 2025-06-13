@@ -9,5 +9,6 @@ router.post('/candidate-login', candidateController.candidateLogin);
 router.get('/job-listing', candidateController.jobListing);
 router.post('/apply-job', validateCandidate, candidateController.applyJob);
 router.get('/applied-job-listing', validateCandidate, candidateController.appliedJobListing);
+router.post('/candidate-logout', validateCandidate, candidateController.candidateLogout);
 
 module.exports = router;
